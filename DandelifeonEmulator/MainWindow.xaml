@@ -1,0 +1,56 @@
+﻿<Window x:Class="DandelifeonEmulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="Microsoft YaHei UI"
+        Title="DandelifeonEmulator" Height="780" Width="600">
+    <Grid>
+        <materialDesign:Card Margin="8">
+            <Grid x:Name="MainGrid" Height="500" Width="500" Margin="8" Cursor="Cross">
+                
+
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card Margin="8" VerticalAlignment="Bottom" >
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="8">
+                    <Button Margin="4" Click="Run">运行模拟</Button>
+                    <Button Margin="4" Click="RunToEnd">运行至结束</Button>
+                    <Button Margin="4" Click="Reset">重置</Button>
+                    <Button Margin="4" Click="Stop">停止</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="8 4 4 4">步数</TextBlock>
+                    <TextBlock Margin="4" x:Name="Step">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="8 4 4 4">细胞</TextBlock>
+                    <TextBlock Margin="4" x:Name="Cells">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="8 4 4 4">魔力</TextBlock>
+                    <TextBlock Margin="4" x:Name="Mana">0</TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Margin="4" x:Name="SaveTextBox" Width="400"/>
+                    <Button Margin="4" Click="Save">保存</Button>
+                    <Button Margin="4" Click="Load">加载</Button>
+                </StackPanel>
+                <TextBlock Margin="8 4 4 4" TextAlignment="Center">TGT - 2017 · EMROF Cyl18</TextBlock>
+
+            </StackPanel>
+            
+        </materialDesign:Card>
+        <materialDesign:Snackbar x:Name="MainSnackbar" MessageQueue="{materialDesign:MessageQueue}"/>
+    </Grid>
+</Window>
