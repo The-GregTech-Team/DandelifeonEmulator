@@ -117,7 +117,7 @@ namespace DandelifeonEmulator
 
         private const int Range = 12;
         private const int MaxGenerations = 60;
-        private const int ManaPerGen = 150;
+        public int ManaPerGen = 150;
 
         public void Run()
         {
@@ -177,6 +177,7 @@ namespace DandelifeonEmulator
 
         public bool Isfinal;
         public int Mana;
+        public int manaMax = 50000;
         void SetBlockForGeneration(int x, int z, int gen, int prevGen)
         {
             var tile = GetBlock(x, z);
@@ -184,7 +185,7 @@ namespace DandelifeonEmulator
             if (gen == -2)
             {
                 int val = prevGen * ManaPerGen;
-                Mana += Math.Min(val, 50000);
+                Mana += Math.Min(manaMax, val+Mana); // non max
                 Isfinal = true;
             }
             else if (tile is Cell cell)

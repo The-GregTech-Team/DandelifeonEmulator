@@ -40,12 +40,18 @@
                     <TextBlock Margin="8 4 4 4">魔力</TextBlock>
                     <TextBlock Margin="4" x:Name="Mana">0</TextBlock>
                 </StackPanel>
-
+                
+                <StackPanel Orientation="Horizontal">
+                    <ToggleButton Click="OrigindMode" x:Name="ChangeModeButton" Margin="8 4 4 4"/>
+                    <TextBlock Margin="4">Origind 模式</TextBlock>
+                </StackPanel>
+                
                 <StackPanel Orientation="Horizontal">
                     <TextBox Margin="4" x:Name="SaveTextBox" Width="400"/>
                     <Button Margin="4" Click="Save">保存</Button>
                     <Button Margin="4" Click="Load">加载</Button>
                 </StackPanel>
+                
                 <TextBlock Margin="8 4 4 4" TextAlignment="Center">TGT - 2017 · EMROF Cyl18</TextBlock>
 
             </StackPanel>

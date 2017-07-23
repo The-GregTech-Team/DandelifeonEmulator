@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -105,6 +106,7 @@ namespace DandelifeonEmulator
                         Controller.UpdateBlock(newblock);
                         Controller.UpdateRect(newblock);
                     };
+
                 }
             }
 
@@ -116,6 +118,8 @@ namespace DandelifeonEmulator
             Step.Text = "0";
             Cells.Text = "0";
             Mana.Text = "0";
+            ChangeModeButton.IsChecked = false;
+            Controller.manaMax = 50000;
         }
 
         
@@ -192,6 +196,23 @@ namespace DandelifeonEmulator
             {
                 MainSnackbar.MessageQueue.Enqueue(exception.Message);
             }
+        }
+
+        private void OrigindMode(object sender, RoutedEventArgs e)
+        {
+            var button = (ToggleButton) sender;
+            if (button.IsChecked.Value)
+            {
+                Controller.ManaPerGen = 3750;
+                Controller.manaMax = 500000;
+            }
+            else
+            {
+                Controller.ManaPerGen = 150;
+                Controller.manaMax = 50000;
+
+            }
+
         }
     }
 }
